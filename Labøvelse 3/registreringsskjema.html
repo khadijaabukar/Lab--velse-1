@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="nb">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="vidth=device-width, initial-scale=1.0">
+        <title>Registreringsskjema</title>
+        <style>
+            form{
+                width:300px;
+                margin:0 auto;
+            }
+            label{
+                display:block;
+                margin:10px 0 5px;
+            }
+            input, select{
+                width:100%;
+                padding:8px;
+                margin-bottom: 10px;
+            }
+            .sumbit-button{
+                width: 100%;
+                padding: 10px;
+                background: #4CAF50;
+                color:white;
+                border:none;
+                cursor:pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Registreringsskjema</h2>
+        <form action="/send-inn" method="post">
+            <label for="navn">Navn:</label>
+            <input type="text" id="navn" name="navn" pattern="[A-Za-zæøåÆØÅ ]{2,}" required>
+            
+            <label for="email">E-post:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="passord">Passord:</label>
+            <input type="password" id="passord" name="passord" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+            
+            <label for="alder">Alder:</label>
+            <input type="number" id="alder" name="alder" min="18" max="99" required>
+            <label for="fødselsdato">Fødselsdato:</label>
+            <input type="date" id="fødselsdato" name="fødselsdato" max="2023-12-31" required>
+
+            <label>Kjønn:</label>
+            <input type="radio" id="mann" name="kjønn" value="Mann" required>
+            <label for="mann">Mann</label>
+            <input type="radio" id="kvinne" name="kjønn" value="Kvinne" required>
+            <label for="kvinne">Kvinne</label>
+            <input type="radio" id="annet" name="kjønn" value="Annet" required>
+            <label for="annet">Annet</label>
+
+            <label for="land">Land:</label>
+            <select id="land" name="land" required>
+                <option value="">Velg land</option>
+                <option value="Norge">Norge</option>
+                <option value="Danmark">Danmark</option>
+                <option value="Sverige">Sverige</option>
+                <option value="Somalia">Somalia</option>
+            </select>
+
+            <label for="personvern">
+                <input type="checkbox" id="personvern" name="personvern" required>
+            </label>
+            <button type="submit" class="sumbit-button">Send</button>
+
+       
+
+        </form>
+    </body>
+
+</html>
